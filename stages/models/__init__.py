@@ -1,7 +1,5 @@
 from .entreprise import Entreprise
-
-
-
+from .personne import Personne
 
 
 
