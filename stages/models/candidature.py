@@ -11,3 +11,6 @@ class Candidature(models.Model):
         choices=Statut.choices,
         default=Statut.ATTENTE
     )
+
+    class Meta:
+        verbose_name = "candidature"
