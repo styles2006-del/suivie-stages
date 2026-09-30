@@ -1,5 +1,6 @@
 from .entreprise import Entreprise
 from .personne import Personne
+from .tuteur_entreprise import TuteurEntreprise
 
 
 
@@ -7,4 +8,4 @@ from .personne import Personne
 
 
 
-__all__ = ["Entreprise"]
+__all__ = ["Entreprise","Personne"]
