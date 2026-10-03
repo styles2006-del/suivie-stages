@@ -17,16 +17,16 @@ class Personne (models.Model):
             verbose_name="Sexe"
     )
     date_naissance = models.DateField()
-    email = models.EmailField
+    email = models.EmailField()
 
     
 
     class Meta:
-        abstract = true
+        abstract = True
         verbose_name = ("personne")
         verbose_name_plural = ("personnes")
 
     def __str__(self):
-        return self.name
+        return self.nom
 
     
