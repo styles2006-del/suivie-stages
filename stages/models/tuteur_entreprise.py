@@ -2,6 +2,7 @@ from django.db import models
 
 from stages.models.personne import Personne
 from stages.models.entreprise import Entreprise
+from stages.models.stage import Stage
 
 class TuteurEntreprise(Personne):
     matricule = models.CharField(max_length=120)
