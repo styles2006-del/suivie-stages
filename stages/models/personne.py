@@ -22,6 +22,7 @@ class Personne (models.Model):
     
 
     class Meta:
+        abstract = true
         verbose_name = ("personne")
         verbose_name_plural = ("personnes")
 
