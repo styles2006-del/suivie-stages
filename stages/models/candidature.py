@@ -11,6 +11,7 @@ class Candidature(models.Model):
         choices=Statut.choices,
         default=Statut.ATTENTE
     )
+    date_depot = models.DateField()
 
     class Meta:
         verbose_name = "candidature"
