@@ -1,5 +1,7 @@
 from django.db import models
 
+from stages.models.offre import Offre
+
 class Candidature(models.Model):
     class Statut(models.TextChoices):
         ACCEPTER = "accepter"
@@ -12,6 +14,11 @@ class Candidature(models.Model):
         default=Statut.ATTENTE
     )
     date_depot = models.DateField()
+    
+    offre = models.ForeignKey(
+        Offre, on_delete=models.PROTECT,
+        related_name="candidatures"
+    )
 
     class Meta:
         verbose_name = "candidature"
