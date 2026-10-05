@@ -1,0 +1,46 @@
+{% extends "stages/base.html" %} 
+{% block titre %} Toutes les offres{% endblock titre %} 
+{% block contenu %}
+<h1>Toutes les offres</h1>
+<table style="width: 100%; border-collapse: collapse; font-family: sans-serif">
+  <thead>
+    <tr style="background-color: #f2f2f2">
+      <th style="border: 1px solid #dddddd; padding: 12px; text-align: left">
+        Intitulés
+      </th>
+      <th style="border: 1px solid #dddddd; padding: 12px; text-align: left">
+        Entreprises
+      </th>
+      <th style="border: 1px solid #dddddd; padding: 12px; text-align: left">
+        Date de début
+      </th>
+      <th style="border: 1px solid #dddddd; padding: 12px; text-align: left">
+        Date de fin
+      </th>
+      <th style="border: 1px solid #dddddd; padding: 12px; text-align: left">
+        Nombre de Places
+      </th>
+      <th style="border: 1px solid #dddddd; padding: 12px; text-align: left">
+        Compétences
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for offre in offres%}
+        <tr>
+            <td style="border: 1px solid #dddddd; padding: 12px">{{offre.titre}}</td>
+            <td style="border: 1px solid #dddddd; padding: 12px">{{offre.entreprise.nom}}</td>
+            <td style="border: 1px solid #dddddd; padding: 12px">{{offre.date_debut}}</td>
+            <td style="border: 1px solid #dddddd; padding: 12px">{{offre.date_fin}}</td>
+            <td style="border: 1px solid #dddddd; padding: 12px">{{offre.nb_places}}</td>
+            <td style="border: 1px solid #dddddd; padding: 12px">{% for competence in offre.competences.all %}
+                    {{ competence.libelle }}
+            {% endfor %}
+        </td>
+        </tr>
+    {% empty%}
+        <p>Aucune Offre trouver</p>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock contenu %}

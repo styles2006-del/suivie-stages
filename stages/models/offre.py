@@ -1,6 +1,7 @@
 from django.db import models
 
 from stages.models.entreprise import Entreprise
+from stages.models.competence import Competence
 
 class Offre(models.Model):
     titre = models.CharField(max_length=120)
@@ -15,7 +16,7 @@ class Offre(models.Model):
     )
     
     competences = models.ManyToManyField(
-        "Competence", related_name="offres"
+        Competence, related_name="offres"
     )
     
     class Meta:

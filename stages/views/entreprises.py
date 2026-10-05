@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
-# Create your views here.
-from .models import Entreprise
+from stages.models.entreprise import Entreprise
 
 def liste_entreprises(request):
     return render(
