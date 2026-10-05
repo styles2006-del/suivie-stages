@@ -1,6 +1,7 @@
 from django.db import models
 
 from stages.models.offre import Offre
+from stages.models.etudiant import Etudiant
 
 class Candidature(models.Model):
     class Statut(models.TextChoices):
@@ -17,6 +18,11 @@ class Candidature(models.Model):
     
     offre = models.ForeignKey(
         Offre, on_delete=models.PROTECT,
+        related_name="candidatures"
+    )
+    
+    etudiant = models.ForeignKey(
+        Etudiant, on_delete=models.PROTECT,
         related_name="candidatures"
     )
 

@@ -14,6 +14,10 @@ class Offre(models.Model):
         related_name="offres"
     )
     
+    competences = models.ManyToManyField(
+        "Competence", related_name="offres"
+    )
+    
     class Meta:
         verbose_name = "offre"
         verbose_name_plural = "offres"

@@ -2,7 +2,6 @@ from django.db import models
 
 from stages.models.personne import Personne
 from stages.models.entreprise import Entreprise
-from stages.models.stage import Stage
 
 class TuteurEntreprise(Personne):
     matricule = models.CharField(max_length=120)
@@ -14,3 +13,4 @@ class TuteurEntreprise(Personne):
     
     class Meta(Personne.Meta):
         verbose_name = "tuteur_entreprise"
+        verbose_name_plural = "tuteurs_entreprises"
