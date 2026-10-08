@@ -28,7 +28,9 @@
   <tbody>
     {% for offre in offres%}
         <tr>
-            <td style="border: 1px solid #dddddd; padding: 12px">{{offre.titre}}</td>
+            <td style="border: 1px solid #dddddd; padding: 12px">
+              <a href="{% url 'stages:details_offre' offre.id %}">{{offre.titre}}</a>
+            </td>
             <td style="border: 1px solid #dddddd; padding: 12px">{{offre.entreprise.nom}}</td>
             <td style="border: 1px solid #dddddd; padding: 12px">{{offre.date_debut}}</td>
             <td style="border: 1px solid #dddddd; padding: 12px">{{offre.date_fin}}</td>

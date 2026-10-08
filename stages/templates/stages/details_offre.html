@@ -1,0 +1,142 @@
+{% extends 'stages/base.html' %}
+
+{% block titre %}
+    Détails d'une offre
+{% endblock titre %}
+
+{% block contenu %}
+<style>
+    .offre-container {
+        max-width: 800px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: "Segoe UI", Arial, sans-serif;
+    }
+
+    .page-title {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #6b7280;
+        margin-bottom: 10px;
+    }
+
+    .offre-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border-top: 5px solid #4f46e5;
+        padding: 30px;
+    }
+
+    .offre-card h2 {
+        margin: 0 0 20px;
+        font-size: 1.8rem;
+        color: #1f2937;
+    }
+
+    .info-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .info-item {
+        background: #f9fafb;
+        border-radius: 8px;
+        padding: 12px 15px;
+    }
+
+    .info-item .label {
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #6b7280;
+        margin-bottom: 4px;
+    }
+
+    .info-item .valeur {
+        font-weight: 600;
+        color: #1f2937;
+    }
+
+    .badge {
+        display: inline-block;
+        background: #eef2ff;
+        color: #4f46e5;
+        padding: 4px 12px;
+        border-radius: 999px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        text-decoration: none;
+    }
+
+    a.badge:hover {
+        background: #e0e7ff;
+    }
+
+    .offre-info {
+        color: #4b5563;
+        line-height: 1.7;
+        border-top: 1px solid #e5e7eb;
+        padding-top: 20px;
+    }
+
+    .btn-retour {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 10px 20px;
+        background: #4f46e5;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-retour:hover {
+        background: #4338ca;
+        transform: translateY(-2px);
+    }
+</style>
+
+<div class="offre-container">
+    <p class="page-title">Détail d'une offre</p>
+
+    <div class="offre-card">
+        <h2>{{ offre.titre }}</h2>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span class="label">Entreprise</span>
+                
+                <a href="" class="badge">
+                    {{ offre.entreprise }}
+                </a>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Date de début</span>
+                <span class="valeur">{{ offre.date_debut|date:"d/m/Y" }}</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Date de fin</span>
+                <span class="valeur">{{ offre.date_fin|date:"d/m/Y" }}</span>
+            </div>
+
+            <div class="info-item">
+                <span class="label">Places disponibles</span>
+                <span class="valeur">{{ offre.nb_places }}</span>
+            </div>
+        </div>
+
+        <div class="offre-info">
+            <p>{{ offre.description }}</p>
+        </div>
+
+        <a href="javascript:history.back()" class="btn-retour">← Retour</a>
+    </div>
+</div>
+{% endblock contenu %}

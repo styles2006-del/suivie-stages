@@ -8,3 +8,12 @@ def liste_offres(request):
         "stages/listes_offres.html",
         {"offres":offres}
     )
+
+def details_offre(request,id):
+    offre = Offre.objects.get(id=id)
+    return render(
+        request,
+        "stages/details_offre.html",
+        {"offre":offre}
+    )
+
