@@ -1,0 +1,41 @@
+{% extends 'stages/base.html' %} 
+{% block titre %} Détails d'une entreprise 
+{% endblock titre %} 
+{% block contenu %}
+<div class="entreprise-container">
+  <p class="page-title">Détail d'une entreprise</p>
+
+  <div class="entreprise-card">
+    <h2>{{ entreprise.nom}}</h2>
+
+    <div class="info-grid">
+      <div class="info-item">
+        <span class="label">Ville</span>
+        {{ entreprise.ville }}
+      </div>
+
+      <div class="info-item">
+        <span class="label">Secteur</span>
+        <span class="valeur">{{ entreprise.secteur}}</span>
+      </div>
+
+      <div class="info-item">
+        <span class="label">Contact</span>
+        <span class="valeur">{{ entreprise.contact }}</span>
+      </div>
+      <div class="info-item">
+        <span class="label">Offres</span>
+        <ul>
+          {% for offre in offres %}
+            <li><a href="{% url 'stages:details_offre' offre.id %}">
+                <span class="valeur">{{ offre.titre }}</span>
+            </a>
+          </li><br>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <a href="javascript:history.back()" class="btn-retour">← Retour</a>
+  </div>
+</div>
+{% endblock contenu %}

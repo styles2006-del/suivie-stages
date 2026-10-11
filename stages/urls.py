@@ -5,5 +5,6 @@ app_name = "stages"
 urlpatterns = [
     path("entreprises/", views.liste_entreprises, name="liste_entreprises"),
     path("offres/", views.liste_offres, name="listes_offres"),
-    path("offres/<int:id>",views.details_offre, name="details_offre")
+    path("offres/<int:id>",views.details_offre, name="details_offre"),
+    path("entreprises/<int:id>",views.detail_entreprise, name="detail_entreprise")
 ]
