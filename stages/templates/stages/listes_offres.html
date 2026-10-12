@@ -1,0 +1,46 @@
+{% extends "stages/base.html" %}
+
+{% block titre %}Toutes les offres{% endblock titre %}
+
+{% block contenu %}
+<div class="liste-container">
+  <p class="page-title">Stages</p>
+
+  <div class="table-card">
+    <h1>Toutes les offres</h1>
+
+    <table class="offres-table">
+      <thead>
+        <tr>
+          <th>Intitulé</th>
+          <th>Entreprise</th>
+          <th>Date de début</th>
+          <th>Date de fin</th>
+          <th>Places</th>
+          <th>Compétences</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for offre in offres %}
+        <tr>
+          <td><a href="{% url 'stages:details_offre' offre.id %}">{{ offre.titre }}</a></td>
+          <td>{{ offre.entreprise.nom }}</td>
+          <td>{{ offre.date_debut|date:"d/m/Y" }}</td>
+          <td>{{ offre.date_fin|date:"d/m/Y" }}</td>
+          <td>{{ offre.nb_places }}</td>
+          <td>
+            {% for competence in offre.competences.all %}
+              <span class="badge">{{ competence.libelle }}</span>
+            {% endfor %}
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="6" class="vide">Aucune offre trouvée.</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock contenu %}

@@ -12,7 +12,7 @@ cpt_php = Competence.objects.create(libelle="PHP")
 sokotech = Entreprise.objects.create(nom="SokoTech", ville="Sokodé", secteur=Entreprise.Secteur.TECHNOLOGIE, contact="a.tchalla@sokotech.tg")
 agronum = Entreprise.objects.create(nom="AgroNum", ville="Sokodé", secteur=Entreprise.Secteur.COMMERCE, contact="k.mensah@agronum.tg")
 lomesoft = Entreprise.objects.create(nom="LoméSoft", ville="Lomé", secteur=Entreprise.Secteur.TECHNOLOGIE, contact="p.dossou@lomesoft.tg")
-sokotech = Entreprise.objects.get(nom="Sokotech")
+sokotech = Entreprise.objects.get(nom="SokoTech")
 agronum = Entreprise.objects.get(nom="AgroNum")
 lomesoft = Entreprise.objects.get(nom="LoméSoft")
 
